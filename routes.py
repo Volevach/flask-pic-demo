@@ -27,7 +27,7 @@ def upload():
             return redirect(request.url)
         
         #if file not empty and of allowed extension 
-        file_ext = os.path.splitext(file.filename)[1] if os.path.splitext(file.filename)[1] != 'jpeg' else 'jpg'
+        file_ext = os.path.splitext(file.filename)[1] if os.path.splitext(file.filename)[1] != '.jpeg' else '.jpg'
         if file and allowed_file(file_ext):
             # validate that content is valid image file
             if file_ext != validate_image(file.stream):

@@ -1,12 +1,9 @@
-from PIL import Image
+from skimage import data
+from skimage.filters import edges
+
 import imghdr
 
 ALLOWED_EXTENSIONS = {'.png', '.jpg', '.jpeg', '.gif'}
-
-def check_picture_size(picture):
-    i = Image.open(picture)
-    if (i.size[0] < 1750) or (i.size[1] < 1000):
-        return True
 
 def allowed_file(file_ext):
     return file_ext in ALLOWED_EXTENSIONS
@@ -18,3 +15,4 @@ def validate_image(stream):
     if not format:
         return None
     return '.' + (format if format != 'jpeg' else 'jpg')
+
